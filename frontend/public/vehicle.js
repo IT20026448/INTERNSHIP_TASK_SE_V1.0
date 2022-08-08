@@ -1,17 +1,17 @@
-const plateNumber = document.getElementById('plateNo');
+const plateNumber = document.getElementById('PlateNo');
 const button = document.getElementById('button');
 
 button.addEventListener('click', send, false);
 
 function send(){
-    const plateNo = numberInput.value;
+    const PlateNumber = plateNumber;
 
     fetch('/', {
         method: 'post',
         headers: {
             'Content-type' : 'application/json'
         },
-        body: JSON.stringify({plateNo : plateNo})
+        body: JSON.stringify({PlateNumber : PlateNumber})
     })
     .then(function(res){
         console.log(res);

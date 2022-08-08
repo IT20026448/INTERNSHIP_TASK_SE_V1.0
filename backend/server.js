@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 //import route
-const VehicleRegistration = require('./routes/vehiclePosts');
+const VehicleRoutes = require('./routes/vehiclePosts');
 
 //middleware of the app
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //middleware of the route
-app.use(VehicleRegistration);
+app.use(VehicleRoutes);
 
 const port = 3000;
 
@@ -29,11 +29,6 @@ mongoose.connect(DB_URL, {
 })
 .catch((err) => console.log('DB connection error', err));
 
-app.post('/vehicleReg', (req, res) => {
-    res.send(req.body);
-    console.log(req.body);
-});
-
 app.listen(port, () => {
-    console.log('App is running on port ${port}');
+    console.log('App is running on port %d', port);
 });
